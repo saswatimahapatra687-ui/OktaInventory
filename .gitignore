@@ -1,0 +1,21 @@
+# Excel outputs
+*.xlsx
+*.xls
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Streamlit secrets (never commit tokens)
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db
