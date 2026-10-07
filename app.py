@@ -9,8 +9,13 @@ import contextlib
 import pandas as pd
 import streamlit as st
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "files"))
-from okta_inventory import OktaClient, collect_all, build_excel, generate_demo_data
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "files"))
+try:
+    from okta_inventory import OktaClient, collect_all, build_excel, generate_demo_data
+except Exception as _import_err:
+    import streamlit as st
+    st.error(f"Failed to import okta_inventory: {_import_err}")
+    st.stop()
 
 st.set_page_config(
     page_title="Okta Inventory — Ross Stores",
