@@ -19,25 +19,15 @@ import urllib3
 from urllib.parse import urlparse, urlunparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-sys.stdout.reconfigure(encoding='utf-8')
 from datetime import datetime
 from collections import defaultdict
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-try:
-    import openpyxl
-    from openpyxl.styles import (PatternFill, Font, Alignment, Border, Side)
-    from openpyxl.utils import get_column_letter
-    import pandas as pd
-except ImportError:
-    print("Installing required packages...")
-    import subprocess
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "requests", "openpyxl", "pandas"])
-    import openpyxl
-    from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
-    from openpyxl.utils import get_column_letter
-    import pandas as pd
+import openpyxl
+from openpyxl.styles import (PatternFill, Font, Alignment, Border, Side)
+from openpyxl.utils import get_column_letter
+import pandas as pd
 
 
 # ─── OKTA API CLIENT ──────────────────────────────────────────────────────────
